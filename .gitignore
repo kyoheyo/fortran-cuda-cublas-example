@@ -1,0 +1,6 @@
+# build artifacts
+build/
+*.o
+*.obj
+test_fortran
+*.mod
