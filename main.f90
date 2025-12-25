@@ -13,16 +13,16 @@ program test_cublas_switch
       integer(c_int) :: gpu_available
     end function
 
-    subroutine compute_mat(a_ptr, b_ptr, c_ptr, n, use_gpu) bind(C, name="compute_mat")
+    subroutine compute_mat(a_ptr, b_ptr, out_ptr, n, use_gpu) bind(C, name="compute_mat")
       import :: c_ptr, c_int
-      type(c_ptr), value :: a_ptr, b_ptr, c_ptr
+      type(c_ptr), value :: a_ptr, b_ptr, out_ptr
       integer(c_int), value :: n
       integer(c_int), value :: use_gpu
     end subroutine
   end interface
 
   integer :: n, i, j
-  real(c_double), allocatable :: A(:,:), B(:,:), C(:,:)
+  real(c_double), allocatable, target :: A(:,:), B(:,:), C(:,:)
   character(len=16) :: env
   integer :: env_len
   integer(c_int) :: use_gpu_flag
