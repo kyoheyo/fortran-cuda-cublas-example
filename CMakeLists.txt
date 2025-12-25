@@ -16,7 +16,8 @@ endif()
 # --- 如果用户没有显式传入 CUDA 架构，则设为 RTX A6000 的 compute capability (86)
 #     可改为其它值或列表（如 "75;86"）以覆盖多种 GPU。
 if (NOT DEFINED CMAKE_CUDA_ARCHITECTURES)
-  set(CMAKE_CUDA_ARCHITECTURES "75;80;86" CACHE STRING "CUDA architectures to build for" FORCE)
+  set(CMAKE_CUDA_ARCHITECTURES 86 CACHE STRING "CUDA architectures to build for" FORCE)
+  # set(CMAKE_CUDA_ARCHITECTURES "75;80;86" CACHE STRING "CUDA architectures to build for" FORCE)
 endif()
 
 option(ENABLE_CUDA "Build CUDA/cuBLAS GPU backend" ON)
